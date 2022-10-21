@@ -61,9 +61,9 @@ class LinkeList:
         return target
 
     def reverse(self):
+        self.tail = self.head
         prev = None
         curr = self.head
-        self.tail = self.head
         next = curr.next
         while curr:
             curr.next = prev
@@ -83,4 +83,4 @@ print(my_list.pop().value)
 my_list.view()
 my_list.reverse()
 my_list.view()
-print(my_list.tail)
+print(my_list.tail.value)
