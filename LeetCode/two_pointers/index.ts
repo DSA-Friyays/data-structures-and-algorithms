@@ -64,3 +64,49 @@ function twoSum(numbers: number[], target: number): number[] {
     }
   }
 }
+
+function threeSum(nums: number[]): number[][] {
+  const sortedNums = nums.sort((a, b) => a - b);
+  let comArray = [];
+
+  for (let i = 0; i < sortedNums.length; i++) {
+    if (i > 0 && sortedNums[i] === sortedNums[i - 1]) {
+      continue;
+    }
+
+    let leftPointer = i + 1;
+    let rightPointer = sortedNums.length - 1;
+
+    while (leftPointer < rightPointer) {
+      const sum =
+        sortedNums[i] + sortedNums[leftPointer] + sortedNums[rightPointer];
+      if (sum === 0) {
+        comArray.push([
+          sortedNums[i],
+          sortedNums[leftPointer],
+          sortedNums[rightPointer],
+        ]);
+        rightPointer--;
+        leftPointer++;
+        while (
+          leftPointer < rightPointer &&
+          sortedNums[leftPointer] === sortedNums[leftPointer - 1]
+        ) {
+          leftPointer++;
+        }
+        while (
+          leftPointer < rightPointer &&
+          sortedNums[rightPointer] === sortedNums[rightPointer + 1]
+        ) {
+          rightPointer--;
+        }
+      } else if (sum < 0) {
+        leftPointer++;
+      } else {
+        rightPointer--;
+      }
+    }
+  }
+
+  return comArray;
+}
