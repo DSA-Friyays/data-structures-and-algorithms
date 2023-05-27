@@ -110,3 +110,98 @@ function threeSum(nums: number[]): number[][] {
 
   return comArray;
 }
+
+// 3Sum
+
+// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+// Notice that the solution set must not contain duplicate triplets.
+
+function threeSum(nums: number[]): number[][] {
+  let outPutArray = [];
+  let sortedNums = nums.sort((a, b) => a - b);
+  // [-1,-1, 0, 2, 2, 4]
+  for (let i = 0; i < sortedNums.length; i++) {
+    if (i > 0 && sortedNums[i] === sortedNums[i - 1]) {
+      continue;
+    }
+    // [-1,0,1,2,-1,-4]
+    //.    r
+    // [-1,-1, 0, 1, 2, 4]
+    //    pl - l.     r + 0
+    // [-1,-1, 0, 0, 1, 2, 4, 4]
+    // i     lp  l.       r r - 1
+
+    //  -1 0 4 = 0
+    //  -1 0 4 = 0
+
+    //        i + l + r = 0
+    //         i + l + r > 0
+    //          i + l + r < 0
+
+    let leftPnt = i + 1;
+    let rightPnt = sortedNums.length - 1;
+    while (leftPnt < rightPnt) {
+      const sum = sortedNums[i] + sortedNums[leftPnt] + sortedNums[rightPnt];
+
+      if (sum === 0) {
+        // please modify the output array first
+        outPutArray.push([
+          sortedNums[i],
+          sortedNums[leftPnt],
+          sortedNums[rightPnt],
+        ]);
+        leftPnt++;
+        rightPnt--;
+        while (
+          leftPnt < rightPnt &&
+          sortedNums[leftPnt] === sortedNums[leftPnt - 1]
+        ) {
+          leftPnt++;
+        }
+        while (
+          leftPnt < rightPnt &&
+          sortedNums[rightPnt] === sortedNums[rightPnt + 1]
+        ) {
+          rightPnt--;
+        }
+      } else if (sum < 0) {
+        leftPnt++;
+      } else {
+        rightPnt--;
+      }
+    }
+  }
+  return outPutArray;
+}
+
+// Container With Most Water
+
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+// Return the maximum amount of water a container can store.
+
+// Notice that you may not slant the container.
+
+function maxArea(height: number[]): number {
+  // o(n2)
+  let maxArea = 0;
+  let leftPnt = 0;
+  let rightPnt = height.length - 1;
+
+  while (leftPnt < rightPnt) {
+    const diff = rightPnt - leftPnt;
+    const minHeight = Math.min(height[leftPnt], height[rightPnt]);
+    const currentArea = minHeight * diff;
+    maxArea = Math.max(maxArea, currentArea);
+
+    if (height[leftPnt] <= height[rightPnt]) {
+      leftPnt++;
+    } else {
+      rightPnt--;
+    }
+  }
+  return maxArea;
+}
