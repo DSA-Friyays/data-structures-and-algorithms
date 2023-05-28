@@ -205,3 +205,27 @@ function maxArea(height: number[]): number {
   }
   return maxArea;
 }
+
+// Best Time to Buy and Sell Stock
+
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+function maxProfit(prices: number[]): number {
+  let leftPnt = 0;
+  let rightPnt = 0;
+  let maxProfit = 0;
+  while (rightPnt < prices.length) {
+    const profit = prices[rightPnt] - prices[leftPnt];
+    maxProfit = Math.max(maxProfit, profit);
+
+    if (prices[rightPnt] < prices[leftPnt]) {
+      leftPnt = rightPnt;
+    }
+    rightPnt++;
+  }
+  return maxProfit;
+}
