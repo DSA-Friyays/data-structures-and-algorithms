@@ -1,5 +1,4 @@
-// 217. Contains Duplicate
-
+//  Contains Duplicate
 // Given an integer array nums, return true if any value appears at least twice in the array,
 // and return false if every element is distinct.
 // Example 1:
@@ -22,16 +21,13 @@ function containsDuplicate(nums: number[]): boolean {
 }
 
 //  Valid Anagram
-
 // Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-
 // An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
 // Example 1:
 
 // Input: s = "anagram", t = "nagaram"
 // Output: true
-
 function isAnagram(s: string, t: string): boolean {
   if (s.length !== t.length) {
     return false;
@@ -54,11 +50,8 @@ function isAnagram(s: string, t: string): boolean {
 }
 
 // Two Sum
-
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
 // You can return the answer in any order.
 
 // Example 1:
@@ -66,7 +59,6 @@ function isAnagram(s: string, t: string): boolean {
 // Input: nums = [2,7,11,15], target = 9
 // Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-
 function twoSum(nums: number[], target: number): number[] {
   const hashMap = {};
 
@@ -83,14 +75,11 @@ function twoSum(nums: number[], target: number): number[] {
 // Group Anagrams
 
 // Given an array of strings strs, group the anagrams together. You can return the answer in any order.
-
 // An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
-
 // Example 1:
 
 // Input: strs = ["eat","tea","tan","ate","nat","bat"]
 // Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-
 function groupAnagrams(strs: string[]): string[][] {
   const hashMap = {};
 
@@ -112,14 +101,6 @@ function groupAnagrams(strs: string[]): string[][] {
 }
 
 // Top K Frequent Elements
-
-// Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
-
-// Example 1:
-
-// Input: nums = [1,1,1,2,2,3], k = 2
-// Output: [1,2]
-
 function topKFrequent(nums: number[], k: number): number[] {
   const hashMap = {};
   const freq = new Array(nums.length + 1).fill(0).map(() => []);
@@ -161,11 +142,8 @@ function topKFrequent(nums: number[], k: number): number[] {
 
 // Product of Array Except Self
 // Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
-
 // The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
-
 // You must write an algorithm that runs in O(n) time and without using the division operation.
-
 function getPrefixValue(currArr, index) {
   let value = 1;
   if (currArr.hasOwnProperty(index - 1)) {
@@ -247,9 +225,7 @@ function productExceptSelf2(nums: number[]): number[] {
 }
 
 //  Longest Consecutive Sequence
-
 //  Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
-
 //  You must write an algorithm that runs in O(n) time.
 
 function longestConsecutive(nums: number[]): number {
@@ -274,9 +250,7 @@ function longestConsecutive(nums: number[]): number {
 }
 
 // Valid Palindrome
-
 // A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
-
 // Given a string s, return true if it is a palindrome, or false otherwise.
 
 function isPalindrome(s: string): boolean {

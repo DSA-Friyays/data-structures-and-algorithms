@@ -1,5 +1,4 @@
 // Reverse Linked List
-
 // Given the head of a singly linked list, reverse the list, and return the reversed list.
 function reverseList(head: ListNode | null): ListNode | null {
   let prev = null;
@@ -16,13 +15,9 @@ function reverseList(head: ListNode | null): ListNode | null {
 }
 
 // Merge Two Sorted Lists
-
 // You are given the heads of two sorted linked lists list1 and list2.
-
 // Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
-
 // Return the head of the merged linked list.
-
 function mergeTwoLists(
   list1: ListNode | null,
   list2: ListNode | null

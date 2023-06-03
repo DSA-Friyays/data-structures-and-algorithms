@@ -1,9 +1,6 @@
 // Valid Palindrome
-
 // A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
-
 // Given a string s, return true if it is a palindrome, or false otherwise.
-
 function isPalindrome(s: string): boolean {
   let leftPnt = 0;
   let rightPnt = s.length - 1;
@@ -36,13 +33,9 @@ function isPalindrome(s: string): boolean {
 }
 
 // Two Sum II - Input Array Is Sorted
-
-// Example 1:
-
 // Input: numbers = [2,7,11,15], target = 9
 // Output: [1,2]
 // Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
-
 function twoSum(numbers: number[], target: number): number[] {
   // []
   /// diff = target - num[i]
@@ -112,11 +105,8 @@ function threeSum(nums: number[]): number[][] {
 }
 
 // 3Sum
-
 // Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
-
 // Notice that the solution set must not contain duplicate triplets.
-
 function threeSum(nums: number[]): number[][] {
   let outPutArray = [];
   let sortedNums = nums.sort((a, b) => a - b);
@@ -176,15 +166,10 @@ function threeSum(nums: number[]): number[][] {
 }
 
 // Container With Most Water
-
 // You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
-
 // Find two lines that together with the x-axis form a container, such that the container contains the most water.
-
 // Return the maximum amount of water a container can store.
-
 // Notice that you may not slant the container.
-
 function maxArea(height: number[]): number {
   // o(n2)
   let maxArea = 0;
@@ -207,13 +192,9 @@ function maxArea(height: number[]): number {
 }
 
 // Best Time to Buy and Sell Stock
-
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
-
 // You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
-
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
-
 function maxProfit(prices: number[]): number {
   let leftPnt = 0;
   let rightPnt = 0;
@@ -231,7 +212,6 @@ function maxProfit(prices: number[]): number {
 }
 
 // Longest Substring Without Repeating Characters
-
 function lengthOfLongestSubstring(s: string): number {
   let hashSet = new Set();
   let maxWindowSize = 0;
@@ -250,7 +230,6 @@ function lengthOfLongestSubstring(s: string): number {
 }
 
 // Longest Repeating Character Replacement
-
 function characterReplacement(s: string, k: number): number {
   let result = 0;
   let hashMap = {};
