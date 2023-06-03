@@ -32,20 +32,3 @@ function isValid(s: string): boolean {
     return false;
   }
 }
-
-// Find Minimum in Rotated Sorted Array
-
-let leftPnt = 0;
-let rightPnt = nums.length - 1;
-let result = Infinity;
-
-while (leftPnt < rightPnt) {
-  const middle = Math.floor((leftPnt + rightPnt) / 2);
-  result = Math.min(result, nums[middle]);
-  if (nums[middle] > nums[rightPnt]) {
-    leftPnt = middle + 1;
-  } else {
-    rightPnt = middle - 1;
-  }
-}
-return Math.min(result, nums[leftPnt]);
