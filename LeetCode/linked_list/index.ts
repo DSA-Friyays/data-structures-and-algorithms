@@ -45,3 +45,83 @@ function mergeTwoLists(
 
   return dummy.next;
 }
+
+// Reorder List
+function reorderList(head: ListNode | null): void {
+  if (!head || !head.next) {
+    return;
+  }
+  let slowPnt = head;
+  let fastPnt = head.next;
+
+  while (fastPnt && fastPnt.next) {
+    slowPnt = slowPnt.next;
+    fastPnt = fastPnt.next.next;
+  }
+
+  let second = slowPnt.next;
+  let prev = null;
+  slowPnt.next = null;
+  while (second) {
+    const temp = second.next;
+    second.next = prev;
+    prev = second;
+    second = temp;
+  }
+
+  //
+  let firstPrt = head;
+  let secondPrt = prev;
+  while (secondPrt) {
+    const temp1 = firstPrt.next;
+    const temp2 = secondPrt.next;
+
+    firstPrt.next = secondPrt;
+    secondPrt.next = temp1;
+
+    firstPrt = temp1;
+    secondPrt = temp2;
+  }
+}
+
+// Remove Nth Node From End of List
+// Given the head of a linked list, remove the nth node from the end of the list and return its head.
+// Follow up: Could you do this in one pass?
+//  1 -> 2 -> 3 -> 4 -> 5
+//  1 -> 2 -> 3 -> 5
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+  const dummy = new ListNode(0);
+  dummy.next = head;
+
+  let slow = dummy;
+  let fast = dummy;
+
+  while (n > 0 && fast.next) {
+    fast = fast.next;
+    n--;
+  }
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  slow.next = slow.next.next;
+
+  return dummy.next;
+}
+
+// Linked List Cycle
+function hasCycle(head: ListNode | null): boolean {
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
+      return true;
+    }
+  }
+  return false;
+}
